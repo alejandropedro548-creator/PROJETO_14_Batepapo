@@ -21,12 +21,12 @@ def carregar_mensagens(): ###Buscar as mensagens do arquivo
 
 def salvar_mensagens(mensagens): ###Salvar mensagens do arquivo
     with open(ARQUIVOS_MENSAGENS, "w", encoding="utf-8") as arquivo:
-        json.dump(mensagens, arquivo, ident=4, ensure_ascii=False)
+        json.dump(mensagens, arquivo, indent=4, ensure_ascii=False)
 
 def adicionar_mensagem(username, mensagem): ###Adicionar mensagens a lista de mensagens 
     mensagens = carregar_mensagens()
 
-    horario = datetime.now().stftime("%d/%m/%Y, %H:%M:%S")
+    horario = datetime.now().strftime("%d/%m/%Y, %H:%M:%S")
 
     mensagens.insert(0, {"time": horario,
                          "username": username,
